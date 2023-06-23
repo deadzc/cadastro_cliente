@@ -1,0 +1,21 @@
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+}
+
+.boxTable {
+    box-sizing: border-box;
+    text-indent: initial;
+    width: 80%;
+    margin: auto;
+}
+
+#produtos {
+    width: 100%;
+}
