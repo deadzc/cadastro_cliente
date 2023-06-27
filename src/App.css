@@ -7,6 +7,8 @@
 
 body {
   background-color: #0c0ce94d;
+  width: 100vw;
+  height: 100vh;
 }
 
 form {
@@ -21,10 +23,15 @@ form {
   border-radius: 20px;
 }
 
+form h1 {
+  font-size: 3ex;
+}
+
 form h3 {
   text-align: center;
   color: black;
   font-size: 4ex;
+  margin-bottom: 30px;
 }
 
 form input[type=text],
@@ -37,6 +44,22 @@ form input[type=password] {
   font-size: 0.8rem;
   padding-left: 10px;
   margin: 10px 0;
+}
+
+.return button {
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  background-color: white;
+}
+
+.return svg {
+  width: 80%;
+  height: auto;
+}
+
+.return {
+  width: 40px;
 }
 
 form input[type=text]:hover,
@@ -57,9 +80,75 @@ form input[type=submit] {
   color: white;
   border: 0;
   border-radius: 5px;
-  margin-top: 10px;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  margin-top: 30px;
 }
 
 form input[type=submit]:hover {
   background-color: #6b63fff1;
+}
+
+.boxFiles {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000c0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.boxFileSingle {
+  border-width: thin;
+  border-style: solid;
+  border-color: rgb(125, 125, 125);
+  width: 90%;
+  margin-bottom: 40px;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+}
+
+.boxTable {
+  box-sizing: border-box;
+  text-indent: initial;
+  width: 80%;
+  margin: auto;
+}
+
+#produtos {
+  width: 100%;
+}
+
+.continue-button button {
+  width: 100%;
+  margin-top: 2rem;
+  border: none;
+  background-color: #6c63ff;
+  padding: 0.62rem;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: #fff;
 }

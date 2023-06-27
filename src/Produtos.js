@@ -1,9 +1,12 @@
-import './Produtos.css'
 import { db } from './firebase'
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { BsFillArrowLeftSquareFill } from "react-icons/bs";
 
 function Produtos() {
     const [arquivos, setArquivos] = useState([]);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         db.collection('produtos').onSnapshot((snapshot) => {
@@ -14,12 +17,20 @@ function Produtos() {
 
     }, []);
 
+    function btnReturn() {
+        navigate('/Cliente');
+    }
+
     return (
         <body id='home-body'>
-            <div class="form" id="home-container">
-                <div class="form-header" id="home-header">
-                    <div class="title">
+            <form className="form">
+
+                <div className="form-header" >
+                    <div className="title">
                         <h1>Lista de Produtos</h1>
+                        <div className='return'>
+                            <button onClick={btnReturn}><BsFillArrowLeftSquareFill /></button>
+                        </div>
                     </div>
                 </div>
 
@@ -39,16 +50,15 @@ function Produtos() {
                                 <div>
                                     <table width={'100%'}>
                                         <td width={"30%"}>{data.produto}</td>
-                                        <td width={"30%"}>{data.preço}</td>
+                                        <td width={"30%"}>{"R$"} {data.preço}</td>
                                         <td width={"30%"}>{data.quantidade}</td>
                                     </table>
-
                                 </div>
                             )
                         })
                     }
                 </div>
-            </div>
+            </form>
 
         </body >
     )

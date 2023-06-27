@@ -1,8 +1,20 @@
-import './Cad_Prod.css'
 import { db, storage } from './firebase'
-import React, { useState } from 'react'
+import firebase from 'firebase';
+import React, { useState, useEffect } from 'react'
+import { BsFillArrowLeftSquareFill } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
+import 'firebase/auth';
 
 function Cad_Prod() {
+
+    const [user, setUser] = useState(() => {
+        const user = firebase.auth().currentUser;
+
+        return user;
+    });
+
+    console.log(user)
+    const navigate = useNavigate();
 
     function fazerUploadArquivo(e) {
         e.preventDefault();
@@ -19,6 +31,10 @@ function Cad_Prod() {
 
     }
 
+    function btnReturn() {
+        navigate('/Cliente');
+    }
+
     return (
         <body>
             <div class="form">
@@ -26,6 +42,9 @@ function Cad_Prod() {
                     <div class="form-header">
                         <div class="title">
                             <h1>Cadastro de Produtos</h1>
+                            <div className='return'>
+                                <button onClick={btnReturn}><BsFillArrowLeftSquareFill /></button>
+                            </div>
                         </div>
                     </div>
 
@@ -50,7 +69,7 @@ function Cad_Prod() {
                     </div>
 
                     <div class="continue-button">
-                        <button onClick={(e) => fazerUploadArquivo(e)}><a href="#">Enviar</a> </button>
+                        <button onClick={(e) => fazerUploadArquivo(e)}>Enviar</button>
                     </div>
                 </form>
             </div>

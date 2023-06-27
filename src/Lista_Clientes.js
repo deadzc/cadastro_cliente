@@ -1,6 +1,7 @@
 import { db, storage } from './firebase'
 import React, { useState, useEffect } from 'react'
-import './Lista.css'
+import { BsFillArrowLeftSquareFill } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 
 function Lista_Clientes() {
     const [arquivos, setArquivos] = useState([]);
@@ -14,12 +15,21 @@ function Lista_Clientes() {
 
     }, []);
 
+    const navigate = useNavigate();
+    function btnReturn() {
+        navigate('/Home');
+    }
+
     return (
         <body id='home-body'>
-            <div class="form" id="home-container">
+            <form class="form" id="home-container">
+
                 <div class="form-header" id="home-header">
                     <div class="title">
                         <h1>Lista de Clientes</h1>
+                        <div className='return'>
+                            <button onClick={btnReturn}><BsFillArrowLeftSquareFill /></button>
+                        </div>
                     </div>
                 </div>
 
@@ -60,7 +70,7 @@ function Lista_Clientes() {
                         })
                     }
                 </div>
-            </div>
+            </form>
 
         </body >
     )

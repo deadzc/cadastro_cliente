@@ -1,8 +1,11 @@
-import './Cad_Cliente.css'
 import { db, storage } from './firebase'
 import React, { useState, useEffect } from 'react'
+import { BsFillArrowLeftSquareFill } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 
 function Cad_Cliente() {
+
+    const navigate = useNavigate();
 
     function fazerUploadArquivo(e) {
         e.preventDefault();
@@ -25,51 +28,59 @@ function Cad_Cliente() {
 
     }
 
+    function btnReturn() {
+        navigate('/Home');
+    }
+
     return (
         <body>
-            <div class="form">
+            <div className="form">
                 <form action="#">
-                    <div class="form-header">
-                        <div class="title">
+
+                    <div className="form-header">
+                        <div className="title">
                             <h1>Cadastro de Usuários</h1>
+                            <div className='return'>
+                                <button onClick={btnReturn}><BsFillArrowLeftSquareFill /></button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="input-group">
-                        <div class="input-box">
-                            <label for="firstname">Primeiro Nome</label>
-                            <input id="firstname" type="text" name="firstname" placeholder="Digite o primeiro nome" />
+                    <div className="input-group">
+                        <div className="input-box">
+                            <label for="firstname">Nome</label>
+                            <input id="firstname" type="text" name="firstname" placeholder="Digite o nome" />
                         </div>
 
-                        <div class="input-box">
+                        <div className="input-box">
                             <label for="lastname">Sobrenome</label>
                             <input id="lastname" type="text" name="lastname" placeholder="Digite o sobrenome" />
                         </div>
 
-                        <div class="input-box">
+                        <div className="input-box">
                             <label for="email">E-mail</label>
                             <input id="email" type="text" name="email" placeholder="Digite o e-mail" />
                         </div>
 
-                        <div class="input-box">
+                        <div className="input-box">
                             <label for="number">Celular</label>
                             <input id="text" type="text" name="number" placeholder="(xx) xxxx-xxxx" />
                         </div>
 
-                        <div class="input-box">
+                        <div className="input-box">
                             <label for="addres">Endereço</label>
                             <input id="addres" type="text" name="addres" placeholder="Digite o endereço" />
                         </div>
 
-                        <div class="input-box">
+                        <div className="input-box">
                             <label for="document">Cnpj</label>
                             <input id="document" type="text" name="document" placeholder="Digite Cnpj" />
                         </div>
 
                     </div>
 
-                    <div class="continue-button">
-                        <button onClick={(e) => fazerUploadArquivo(e)}><a href="#">Enviar</a> </button>
+                    <div className="continue-button">
+                        <button onClick={(e) => fazerUploadArquivo(e)}>Enviar</button>
                     </div>
                 </form>
             </div>
